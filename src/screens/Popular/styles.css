@@ -1,0 +1,22 @@
+
+.header__spinner-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 45vh;
+}
+
+.container {
+    background-color: #f4f4f4;
+}
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+.test {
+    width: 20px;
+    height: 20px;
+}
