@@ -1,0 +1,14 @@
+{
+  "en": {
+    "translation": {
+
+      "popular": {
+        "loadMore": "load more",
+        "login": "login",
+        "amount_of_bananas": "{{count}} banana",
+        "amount_of_bananas_plural": "{{count}} bananas"
+      }
+
+    }
+  }
+}

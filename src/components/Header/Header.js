@@ -1,6 +1,7 @@
 // @flow
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import i18next from "i18next";
 
 import "./styles.css";
 
@@ -20,7 +21,7 @@ export default class Header extends Component {
           </div>
           <div className="login">
             <Link className="header__login" to="/login">
-              login
+              {i18next.t('popular.login')}
             </Link>
           </div>
         </div>

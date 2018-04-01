@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { RingLoader } from "react-spinners";
+import i18next from "i18next";
 
 import {
   getPopularMovies,
@@ -50,7 +51,7 @@ class User extends Component {
 
           {popular.data.length && popular.isFetching ? <RingLoader /> : null}
           <div className="btn" onClick={this.loadMore}>
-            load more
+            {i18next.t("popular.loadMore")}
           </div>
         </div>
       </div>

@@ -1,10 +1,10 @@
 // @flow
-import React, { Component } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import img from "./assets/favorite.png";
 
-var Circle = require("rc-progress").Circle;
+const Circle = require("rc-progress").Circle;
 
 export default props => {
   return (

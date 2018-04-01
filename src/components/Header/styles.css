@@ -8,12 +8,14 @@
 .header {
     border: 1px solid #777;
     padding: 10px 0;
+    background-color: #0d1c24;
 }
 .header__inner {
     max-width: 1000px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .header__name {
     color: #212121;
@@ -21,6 +23,6 @@
     text-decoration: none;
 }
 .header__login {
-    color: #212121;
+    color: #fff;
     text-decoration: none;
 }
