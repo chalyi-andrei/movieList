@@ -1,9 +1,9 @@
 // @flow
-import axios from "axios";
+import axios from 'axios';
 
-import popular from "./modules/popular";
-import auth from "./modules/auth";
-import address from "./modules/example-crud";
+import popular from './modules/popular';
+import auth from './modules/auth';
+import address from './modules/example-crud';
 
 export type ReqTypeT = (config: Object) => Promise<*>;
 
@@ -15,12 +15,12 @@ class Client {
   address: *;
   auth: *;
 
-  constructor(baseURL: ?string = "") {
+  constructor(baseURL: ?string = '') {
     this.req = axios.create({
       headers: {
-        "Content-Type": "application/json; charset=utf-8",
+        'Content-Type': 'application/json; charset=utf-8',
       },
-      baseURL
+      baseURL,
     });
 
     this.req.interceptors.request.use(config => {
@@ -30,7 +30,7 @@ class Client {
 
       // eslint-disable-next-line no-param-reassign
       config.headers = Object.assign({}, config.headers, {
-        "Access-Token": this.token
+        'Access-Token': this.token,
       });
       return config;
     });
