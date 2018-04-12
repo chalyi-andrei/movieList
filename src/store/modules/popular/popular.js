@@ -1,63 +1,57 @@
 // @flow
-import { API_REQUEST } from "../../apiAction";
-import api from "../../../api";
+import { API_REQUEST } from '../../apiAction';
+import api from '../../../api';
 
-const GET_POPULAR_MOVIES: "popular/GET_POPULAR_MOVIES" =
-  "popular/GET_POPULAR_MOVIES";
-export const GET_POPULAR_MOVIES_SUCCESS: "popular/GET_POPULAR_MOVIES_SUCCESS" =
-  "popular/GET_POPULAR_MOVIES_SUCCESS";
-const GET_POPULAR_MOVIES_FAILED: "popular/GET_POPULAR_MOVIES_FAILED" =
-  "popular/GET_POPULAR_MOVIES_FAILED";
+const LOAD_MOVIES: 'popular/LOAD_MOVIES' = 'popular/LOAD_MOVIES';
+const LOAD_MOVIES_SUCCESS: 'popular/LOAD_MOVIES_SUCCESS' = 'popular/LOAD_MOVIES_SUCCESS';
+const LOAD_MOVIES_FAILED: 'popular/LOAD_MOVIES_FAILED' = 'popular/LOAD_MOVIES_FAILED';
 
-const ADD_POPULAR_MOVIES: "popular/ADD_POPULAR_MOVIES" =
-  "popular/ADD_POPULAR_MOVIES";
-export const ADD_POPULAR_MOVIES_SUCCESS: "popular/ADD_POPULAR_MOVIES_SUCCESS" =
-  "popular/ADD_POPULAR_MOVIES_SUCCESS";
-const ADD_POPULAR_MOVIES_FAILED: "popular/ADD_POPULAR_MOVIES_FAILED" =
-  "popular/ADD_POPULAR_MOVIES_FAILED";
+const ADD_MOVIES: 'popular/ADD_MOVIES' = 'popular/ADD_MOVIES';
+const ADD_MOVIES_SUCCESS: 'popular/ADD_MOVIES_SUCCESS' = 'popular/ADD_MOVIES_SUCCESS';
+const ADD_MOVIES_FAILED: 'popular/ADD_MOVIES_FAILED' = 'popular/ADD_MOVIES_FAILED';
 
 const initialState = {
   isFetching: false,
   error: null,
-  data: []
+  data: [],
 };
 
 export default function authReducer(state = initialState, action) {
   switch (action.type) {
-    case GET_POPULAR_MOVIES:
+    case LOAD_MOVIES:
       return {
         ...initialState,
-        isFetching: true
+        isFetching: true,
       };
 
-    case ADD_POPULAR_MOVIES:
+    case ADD_MOVIES:
       return {
         ...state,
-        isFetching: true
+        isFetching: true,
       };
 
-    case GET_POPULAR_MOVIES_SUCCESS:
+    case LOAD_MOVIES_SUCCESS:
       return {
         ...initialState,
-        data: action.result.data.results
+        data: action.result.data.results,
       };
 
-    case ADD_POPULAR_MOVIES_SUCCESS:
+    case ADD_MOVIES_SUCCESS:
       return {
         ...initialState,
-        data: [...state.data, ...action.result.data.results]
+        data: [...state.data, ...action.result.data.results],
       };
 
-    case GET_POPULAR_MOVIES_FAILED:
+    case LOAD_MOVIES_FAILED:
       return {
         ...initialState,
-        error: action
+        error: action,
       };
 
-    case ADD_POPULAR_MOVIES_FAILED:
+    case ADD_MOVIES_FAILED:
       return {
         ...state,
-        error: action
+        error: action,
       };
 
     default:
@@ -68,24 +62,15 @@ export default function authReducer(state = initialState, action) {
 export function getPopularMovies(): ApiRequest<Array<SomeType>> {
   return {
     type: API_REQUEST,
-    types: [
-      GET_POPULAR_MOVIES,
-      GET_POPULAR_MOVIES_SUCCESS,
-      GET_POPULAR_MOVIES_FAILED
-    ],
-    call: () => api().popular.getpopularMovies()
+    types: [LOAD_MOVIES, LOAD_MOVIES_SUCCESS, LOAD_MOVIES_FAILED],
+    call: () => api().popular.getpopularMovies(),
   };
 }
 
 export function addPopularMovies(page): ApiRequest<Array<SomeType>> {
-  console.log("page", page);
   return {
     type: API_REQUEST,
-    types: [
-      ADD_POPULAR_MOVIES,
-      ADD_POPULAR_MOVIES_SUCCESS,
-      ADD_POPULAR_MOVIES_FAILED
-    ],
-    call: () => api().popular.addPopularMovies(page)
+    types: [ADD_MOVIES, ADD_MOVIES_SUCCESS, ADD_MOVIES_FAILED],
+    call: () => api().popular.addPopularMovies(page),
   };
 }

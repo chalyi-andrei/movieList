@@ -1,12 +1,21 @@
 // @flow
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
-import img from "./assets/favorite.png";
+import img from './assets/favorite.png';
 
-const Circle = require("rc-progress").Circle;
+// eslint-disable-next-line prefer-destructuring
+const Circle = require('rc-progress').Circle;
 
-export default props => {
+type PropsT = {
+  vote_average: number,
+  title: string,
+  release_date: string,
+  overview: string,
+  poster_path: string,
+};
+
+export default (props: PropsT) => {
   return (
     <Card>
       <Img url={`https://image.tmdb.org/t/p/w500/${props.poster_path}`}>
@@ -21,7 +30,7 @@ export default props => {
               percent={props.vote_average * 10}
               strokeWidth="10"
               trailWidth="9"
-              strokeColor={props.vote_average > 7 ? "#69c778" : "#ccc53c"}
+              strokeColor={props.vote_average > 7 ? '#69c778' : '#ccc53c'}
             />
             <Number>{props.vote_average * 10}</Number>
           </Count>
@@ -96,7 +105,7 @@ const FavoriteBlock = styled.div`
   cursor: default;
 `;
 const Img = styled.div.attrs({
-  url: props => props.url
+  url: props => props.url,
 })`
   min-height: 270px;
   position: relative;

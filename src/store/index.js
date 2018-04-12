@@ -10,11 +10,8 @@ import apiMiddleware from './middleware/api';
 const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-    reducer,
-    composeWithDevTools(applyMiddleware(
-        apiMiddleware,
-        sagaMiddleware,
-    )),
+  reducer,
+  composeWithDevTools(applyMiddleware(apiMiddleware, sagaMiddleware)),
 );
 
 sagas.forEach(saga => sagaMiddleware.run(saga));

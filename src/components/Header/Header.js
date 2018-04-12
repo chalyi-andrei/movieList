@@ -1,13 +1,21 @@
 // @flow
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import i18next from "i18next";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import i18next from 'i18next';
 
-import "./styles.css";
+import './styles.css';
 
 const logo = require('../../assets/logo.svg');
 
-export default class Header extends Component {
+type PropsT = {
+  history?: *,
+  companyName?: string,
+  logout: () => any,
+};
+
+export default class Header extends Component<PropsT> {
+  state = {};
+
   render() {
     const { history, companyName, logout } = this.props;
 

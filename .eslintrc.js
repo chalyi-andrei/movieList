@@ -14,4 +14,8 @@ module.exports = {
     'wrap-iife': 0,
     'no-mixed-operators': 0,
   },
+  globals: {
+    document: true,
+    localStorage: true,
+  },
 };

@@ -1,12 +1,12 @@
 // @flow
-import type { ReqTypeT } from "../index";
-import API from "../base/api";
+import type { ReqTypeT } from '../index';
+import API from '../base/api';
 
 class Auth extends API {
   async signUp() {
     return this.r({
-      method: "POST",
-      url: "/popular"
+      method: 'POST',
+      url: '/popular',
     });
   }
 }
